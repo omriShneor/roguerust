@@ -1,2 +1,2 @@
 # roguerust
-Implementing this tutorial https://bfnightly.bracketproductions.com/chapter_0.html rust rogue-like game. 
+Implementing this tutorial https://bfnightly.bracketproductions.com/ rust rogue-like game. 
