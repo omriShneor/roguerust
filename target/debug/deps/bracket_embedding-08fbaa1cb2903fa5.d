@@ -1,0 +1,10 @@
+/Users/omrishneor/code/roguerust/target/debug/deps/libbracket_embedding-08fbaa1cb2903fa5.rmeta: /Users/omrishneor/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bracket-embedding-0.8.7/src/lib.rs /Users/omrishneor/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bracket-embedding-0.8.7/src/embedding.rs /Users/omrishneor/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bracket-embedding-0.8.7/src/../resources/terminal8x8.png /Users/omrishneor/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bracket-embedding-0.8.7/src/../resources/vga8x16.png
+
+/Users/omrishneor/code/roguerust/target/debug/deps/libbracket_embedding-08fbaa1cb2903fa5.rlib: /Users/omrishneor/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bracket-embedding-0.8.7/src/lib.rs /Users/omrishneor/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bracket-embedding-0.8.7/src/embedding.rs /Users/omrishneor/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bracket-embedding-0.8.7/src/../resources/terminal8x8.png /Users/omrishneor/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bracket-embedding-0.8.7/src/../resources/vga8x16.png
+
+/Users/omrishneor/code/roguerust/target/debug/deps/bracket_embedding-08fbaa1cb2903fa5.d: /Users/omrishneor/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bracket-embedding-0.8.7/src/lib.rs /Users/omrishneor/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bracket-embedding-0.8.7/src/embedding.rs /Users/omrishneor/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bracket-embedding-0.8.7/src/../resources/terminal8x8.png /Users/omrishneor/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bracket-embedding-0.8.7/src/../resources/vga8x16.png
+
+/Users/omrishneor/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bracket-embedding-0.8.7/src/lib.rs:
+/Users/omrishneor/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bracket-embedding-0.8.7/src/embedding.rs:
+/Users/omrishneor/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bracket-embedding-0.8.7/src/../resources/terminal8x8.png:
+/Users/omrishneor/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bracket-embedding-0.8.7/src/../resources/vga8x16.png:

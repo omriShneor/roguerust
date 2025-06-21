@@ -1,0 +1,1 @@
+(&mut Storage<'a, components::Position, FetchMut<'a, MaskedStorage<components::Position>>>, Storage<'a, components::Viewshed, FetchMut<'a, MaskedStorage<components::Viewshed>>>)

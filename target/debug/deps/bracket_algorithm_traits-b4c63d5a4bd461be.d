@@ -1,0 +1,8 @@
+/Users/omrishneor/code/roguerust/target/debug/deps/libbracket_algorithm_traits-b4c63d5a4bd461be.rmeta: /Users/omrishneor/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bracket-algorithm-traits-0.8.7/src/lib.rs /Users/omrishneor/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bracket-algorithm-traits-0.8.7/src/algorithm2d.rs /Users/omrishneor/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bracket-algorithm-traits-0.8.7/src/algorithm3d.rs /Users/omrishneor/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bracket-algorithm-traits-0.8.7/src/basemap.rs
+
+/Users/omrishneor/code/roguerust/target/debug/deps/bracket_algorithm_traits-b4c63d5a4bd461be.d: /Users/omrishneor/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bracket-algorithm-traits-0.8.7/src/lib.rs /Users/omrishneor/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bracket-algorithm-traits-0.8.7/src/algorithm2d.rs /Users/omrishneor/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bracket-algorithm-traits-0.8.7/src/algorithm3d.rs /Users/omrishneor/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bracket-algorithm-traits-0.8.7/src/basemap.rs
+
+/Users/omrishneor/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bracket-algorithm-traits-0.8.7/src/lib.rs:
+/Users/omrishneor/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bracket-algorithm-traits-0.8.7/src/algorithm2d.rs:
+/Users/omrishneor/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bracket-algorithm-traits-0.8.7/src/algorithm3d.rs:
+/Users/omrishneor/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bracket-algorithm-traits-0.8.7/src/basemap.rs:

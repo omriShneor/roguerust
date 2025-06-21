@@ -1,0 +1,8 @@
+/Users/omrishneor/code/roguerust/target/debug/deps/libbracket_embedding-83f8359058d68ed1.rmeta: /Users/omrishneor/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bracket-embedding-0.8.7/src/lib.rs /Users/omrishneor/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bracket-embedding-0.8.7/src/embedding.rs /Users/omrishneor/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bracket-embedding-0.8.7/src/../resources/terminal8x8.png /Users/omrishneor/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bracket-embedding-0.8.7/src/../resources/vga8x16.png
+
+/Users/omrishneor/code/roguerust/target/debug/deps/bracket_embedding-83f8359058d68ed1.d: /Users/omrishneor/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bracket-embedding-0.8.7/src/lib.rs /Users/omrishneor/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bracket-embedding-0.8.7/src/embedding.rs /Users/omrishneor/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bracket-embedding-0.8.7/src/../resources/terminal8x8.png /Users/omrishneor/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bracket-embedding-0.8.7/src/../resources/vga8x16.png
+
+/Users/omrishneor/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bracket-embedding-0.8.7/src/lib.rs:
+/Users/omrishneor/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bracket-embedding-0.8.7/src/embedding.rs:
+/Users/omrishneor/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bracket-embedding-0.8.7/src/../resources/terminal8x8.png:
+/Users/omrishneor/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bracket-embedding-0.8.7/src/../resources/vga8x16.png:
