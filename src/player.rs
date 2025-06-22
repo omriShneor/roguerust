@@ -37,11 +37,15 @@ pub struct  PlayerVisiabilitySystem {}
 
 impl <'a> System<'a> for PlayerVisiabilitySystem {
     type SystemData = (WriteExpect<'a, Map>,
-                       ReadStorage<'a, Position>,
-                       WriteStorage<'a, Viewshed>,
+                        Entities<'a>,
+                        WriteStorage<'a, Viewshed>, 
+                        WriteStorage<'a, Position>,
                         ReadStorage<'a, Player>);
     fn run(&mut self, data : Self::SystemData) {
-        let (mut map, pos, mut viewshed, player) = data;
+        let (mut map, 
+            entities, 
+            mut viewshed,
+            player) = data;
         for (viewshed,pos, _player) in (&mut viewshed, &pos, &player).join() {
             // Only calculate this if the player moved somewhere.
             if viewshed.dirty {
