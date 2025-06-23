@@ -1,1 +1,0 @@
-(&mut Storage<'_, components::Viewshed, FetchMut<'_, MaskedStorage<components::Viewshed>>>, &Storage<'_, components::Position, Fetch<'_, MaskedStorage<components::Position>>>, &Storage<'_, components::Player, Fetch<'_, MaskedStorage<components::Player>>>)

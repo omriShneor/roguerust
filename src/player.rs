@@ -6,6 +6,8 @@ use rltk::{field_of_view,Point};
 use super::{Player, PlayerMovementIntent, Position,TileType, Map};
 
 
+pub struct PlayerEntity(pub Entity);
+
 pub struct PlayerMovementSystem {} // System struct the players movement.
 
 impl <'a> System<'a> for PlayerMovementSystem {
@@ -13,9 +15,10 @@ impl <'a> System<'a> for PlayerMovementSystem {
                         WriteStorage<'a, PlayerMovementIntent>,
                         WriteStorage<'a, Position>,
                         ReadExpect<'a, Map>,
-                        WriteStorage<'a, Viewshed>);  
+                        WriteStorage<'a, Viewshed>,
+                        WriteExpect<'a, Point>);  
     fn run(&mut self, data : Self::SystemData) {
-        let (players, mut intents, mut positions, map,mut viewshed) = data;
+        let (players, mut intents, mut positions, map,mut viewshed, mut p) = data;
         for (_player, intention, pos, viewshed) in (&players, &intents, &mut positions, &mut viewshed).join() {
 
             let destination_x = min(79, max(0, pos.x + intention.delta_x));
@@ -26,6 +29,8 @@ impl <'a> System<'a> for PlayerMovementSystem {
                 pos.x = destination_x;
                 pos.y = destination_y;
                 viewshed.dirty = true;
+                p.x = destination_x;
+                p.y = destination_y;
             }
 
         }
@@ -33,20 +38,17 @@ impl <'a> System<'a> for PlayerMovementSystem {
     }
 }
 
-pub struct  PlayerVisiabilitySystem {}
+pub struct  VisiabilitySystem {}
 
-impl <'a> System<'a> for PlayerVisiabilitySystem {
+impl <'a> System<'a> for VisiabilitySystem {
     type SystemData = (WriteExpect<'a, Map>,
                         Entities<'a>,
                         WriteStorage<'a, Viewshed>, 
                         WriteStorage<'a, Position>,
                         ReadStorage<'a, Player>);
     fn run(&mut self, data : Self::SystemData) {
-        let (mut map, 
-            entities, 
-            mut viewshed,
-            player) = data;
-        for (viewshed,pos, _player) in (&mut viewshed, &pos, &player).join() {
+        let (mut map, entities, mut viewshed, pos, player) = data;
+        for (ent, viewshed,pos) in (&entities, &mut viewshed, &pos).join() {
             // Only calculate this if the player moved somewhere.
             if viewshed.dirty {
                 
@@ -59,10 +61,13 @@ impl <'a> System<'a> for PlayerVisiabilitySystem {
                 viewshed.visible_tiles = field_of_view(Point::new(pos.x, pos.y), viewshed.range, &*map);
                 viewshed.visible_tiles.retain(|p| p.x >= 0 && p.x < map.width as i32 && p.y >= 0 && p.y < map.height as i32);
 
-                for vis in viewshed.visible_tiles.iter() {
-                    let idx = map.xy_idx(vis.x, vis.y);
-                    map.revealed_tiles[idx] = true;
-                    map.visible_tiles[idx] = true;
+                let p: Option<&Player> = player.get(ent);
+                if let Some(_) = p {
+                    for vis in viewshed.visible_tiles.iter() {
+                        let idx = map.xy_idx(vis.x, vis.y);
+                        map.revealed_tiles[idx] = true;
+                        map.visible_tiles[idx] = true;
+                    }
                 }
             }
         }

@@ -1,1 +1,0 @@
-(Storage<'a, Player, Fetch<'a, MaskedStorage<Player>>>, Storage<'a, PlayerMovementIntent, FetchMut<'a, MaskedStorage<PlayerMovementIntent>>>, Storage<'a, Position, FetchMut<'a, MaskedStorage<Position>>>, specs::Read<'a, Vec<TileType>, PanicHandler>)

@@ -1,1 +1,0 @@
-(Storage<'a, components::LeftMover, Fetch<'a, MaskedStorage<components::LeftMover>>>, Storage<'a, components::Position, FetchMut<'a, MaskedStorage<components::Position>>>)

@@ -1,1 +1,0 @@
-(Storage<'a, components::Player, Fetch<'a, MaskedStorage<components::Player>>>, Storage<'a, components::PlayerMovementIntent, FetchMut<'a, MaskedStorage<components::PlayerMovementIntent>>>, Storage<'a, components::Position, FetchMut<'a, MaskedStorage<components::Position>>>, Storage<'a, map::Map, Fetch<'a, MaskedStorage<map::Map>>>)
