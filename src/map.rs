@@ -12,7 +12,8 @@ pub struct Map {
     pub tiles: Vec<TileType>,
     pub rooms: Vec<Rect>,
     pub width: usize,
-    pub height: usize
+    pub height: usize,
+    pub blocked: Vec<bool>
 }
 
 impl Map {
@@ -53,10 +54,15 @@ impl Map {
 
         let mut map = Map {visible_tiles: vec![false; width*height], 
                                 revealed_tiles: vec![false; width*height],
+                                blocked:vec![false; width*height],
                                 tiles, 
                                 rooms: rooms.clone(), 
                                 width,
                                 height};
+        
+        for (i, tile) in map.tiles.iter().enumerate() {
+            map.blocked[i] = *tile == TileType::Wall;
+        }
 
         map.connect_rooms_with_mst(&rooms);
 
@@ -110,7 +116,7 @@ impl Map {
     fn is_exit_valid(&self, x:i32, y:i32) -> bool {
         if x < 1 || x > self.width as i32 - 1 || y < 1 || y > self.height as i32 - 1 { return false; }
         let idx = self.xy_idx(x, y);
-        self.tiles[idx as usize] != TileType::Wall
+        !self.blocked[idx]
     }
 }
 
@@ -138,6 +144,13 @@ impl BaseMap for Map {
         if self.is_exit_valid(x, y+1) { exits.push((idx+w, 1.0)) };
 
         exits
+    }
+
+    fn get_pathing_distance(&self, _idx1: usize, _idx2: usize) -> f32 {
+        let w = self.width;
+        let p1 = Point::new(_idx1 % w,_idx1 / w);
+        let p2 = Point::new(_idx2 % w,_idx2 / w);
+        rltk::DistanceAlg::Pythagoras.distance2d(p1, p2)
     }
 }
 

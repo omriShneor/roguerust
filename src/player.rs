@@ -21,14 +21,21 @@ impl <'a> System<'a> for PlayerMovementSystem {
         let (players, mut intents, mut positions, map,mut viewshed, mut p) = data;
         for (_player, intention, pos, viewshed) in (&players, &intents, &mut positions, &mut viewshed).join() {
 
-            let destination_x = min(79, max(0, pos.x + intention.delta_x));
-            let destination_y = min(49,max(0, pos.y + intention.delta_y));
+            let destination_x = pos.x + intention.delta_x;
+            let destination_y = pos.y + intention.delta_y;
 
-            let map_idx = map.xy_idx(destination_x, destination_y);
-            if map.tiles[map_idx] != TileType::Wall {
+            if destination_x < 0 || destination_x >= map.width as i32 ||
+                destination_y < 0 || destination_y >= map.height as i32 {
+                    continue;
+                }
+
+            let dest_idx = map.xy_idx(destination_x, destination_y);
+            if !map.blocked[dest_idx] {
                 pos.x = destination_x;
                 pos.y = destination_y;
+
                 viewshed.dirty = true;
+
                 p.x = destination_x;
                 p.y = destination_y;
             }
@@ -52,9 +59,6 @@ impl <'a> System<'a> for VisiabilitySystem {
             // Only calculate this if the player moved somewhere.
             if viewshed.dirty {
                 
-                // This is done to grayscale the visited tiles that are no longer visible.
-                map.visible_tiles.fill(false);
-
                 // reset the dirty
                 viewshed.dirty = false;
                 viewshed.visible_tiles.clear();
@@ -63,6 +67,10 @@ impl <'a> System<'a> for VisiabilitySystem {
 
                 let p: Option<&Player> = player.get(ent);
                 if let Some(_) = p {
+
+                    // This is done to grayscale the visited tiles that are no longer visible.
+                    map.visible_tiles.fill(false);
+
                     for vis in viewshed.visible_tiles.iter() {
                         let idx = map.xy_idx(vis.x, vis.y);
                         map.revealed_tiles[idx] = true;

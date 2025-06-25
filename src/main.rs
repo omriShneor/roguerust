@@ -16,6 +16,9 @@ pub use rect::*;
 pub mod monster;
 pub use monster::*;
 
+pub mod map_indexing_system;
+pub use map_indexing_system::*;
+
 #[derive(PartialEq, Clone, Copy)]
 pub enum RunState { Paused, Running }
 
@@ -34,6 +37,9 @@ impl State {
 
         let mut mob = MonsterAI{};
         mob.run_now(&self.ecs);
+
+        let mut map_indexing_system = MapIndexingSystem{};
+        map_indexing_system.run_now(&self.ecs);
         
         self.ecs.maintain();
     }
@@ -142,6 +148,7 @@ fn main() -> rltk::BError {
     gs.ecs.register::<Viewshed>();
     gs.ecs.register::<Monster>();
     gs.ecs.register::<Name>();
+    gs.ecs.register::<BlocksTile>();
 
     let map = Map::new(80, 50);
     let player_init_pos = map.rooms[0].center();
@@ -166,6 +173,7 @@ fn main() -> rltk::BError {
         .with(Viewshed{ visible_tiles : Vec::new(), range: 8, dirty: true })
         .with(Monster{})
         .with(Name{ name: format!("{} #{}",&name ,i )})
+        .with(BlocksTile {})
         .build();
     }
 
