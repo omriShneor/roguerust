@@ -1,9 +1,8 @@
-use std::cmp::{max,min};
 use specs::prelude::*;
 use crate::{Viewshed};
 
 use rltk::{field_of_view,Point};
-use super::{Player, PlayerMovementIntent, Position,TileType, Map};
+use super::{Player, PlayerMovementIntent, Position, Map};
 
 
 pub struct PlayerEntity(pub Entity);

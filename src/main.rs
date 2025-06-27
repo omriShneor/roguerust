@@ -52,20 +52,49 @@ impl State {
         match ctx.key {
             None => return RunState::Paused,
             Some(key) => match key {
-                VirtualKeyCode::Left => {
+                VirtualKeyCode::Left |
+                VirtualKeyCode::Numpad4 |
+                VirtualKeyCode::H => {
                     move_intents.insert(player_entity, PlayerMovementIntent { delta_x: -1, delta_y: 0 })
                         .expect("Unable to insert");
                 },
-                VirtualKeyCode::Right => {
+                VirtualKeyCode::Right |
+                VirtualKeyCode::Numpad6 |
+                VirtualKeyCode::L => {
                     move_intents.insert(player_entity, PlayerMovementIntent { delta_x: 1, delta_y: 0 })
                         .expect("Unable to insert");
                 },
-                VirtualKeyCode::Up => {
+                VirtualKeyCode::Up |
+                VirtualKeyCode::Numpad8 |
+                VirtualKeyCode::K => {
                     move_intents.insert(player_entity, PlayerMovementIntent { delta_x: 0, delta_y: -1 })
                         .expect("Unable to insert");
                 },
-                VirtualKeyCode::Down => {
+                VirtualKeyCode::Down |
+                VirtualKeyCode::Numpad2 |
+                VirtualKeyCode::J => {
                     move_intents.insert(player_entity, PlayerMovementIntent { delta_x: 0, delta_y: 1 })
+                        .expect("Unable to insert");
+                },
+                // Diagonals
+                VirtualKeyCode::Numpad9 |
+                VirtualKeyCode::Y => {
+                    move_intents.insert(player_entity, PlayerMovementIntent { delta_x: 1, delta_y: -1 })
+                        .expect("Unable to insert");
+                },
+                VirtualKeyCode::Numpad7 |
+                VirtualKeyCode::U => {
+                    move_intents.insert(player_entity, PlayerMovementIntent { delta_x: -1, delta_y: -1 })
+                        .expect("Unable to insert");
+                },
+                VirtualKeyCode::Numpad3 |
+                VirtualKeyCode::N => {
+                    move_intents.insert(player_entity, PlayerMovementIntent { delta_x: 1, delta_y: 1 })
+                        .expect("Unable to insert");
+                },
+                VirtualKeyCode::Numpad1 |
+                VirtualKeyCode::B => {
+                    move_intents.insert(player_entity, PlayerMovementIntent { delta_x: -1, delta_y: 1 })
                         .expect("Unable to insert");
                 },
                 _ => return RunState::Paused
@@ -149,6 +178,7 @@ fn main() -> rltk::BError {
     gs.ecs.register::<Monster>();
     gs.ecs.register::<Name>();
     gs.ecs.register::<BlocksTile>();
+    gs.ecs.register::<CombatStats>();
 
     let map = Map::new(80, 50);
     let player_init_pos = map.rooms[0].center();
@@ -174,6 +204,7 @@ fn main() -> rltk::BError {
         .with(Monster{})
         .with(Name{ name: format!("{} #{}",&name ,i )})
         .with(BlocksTile {})
+        .with(CombatStats{ max_hp: 16, hp: 16, defense: 1, power: 4 })
         .build();
     }
 
@@ -191,6 +222,7 @@ fn main() -> rltk::BError {
         .with(Player {})
         .with(Viewshed{ visible_tiles : Vec::new(), range :8, dirty: true})
         .with(Name {name: "Player".to_string()})
+        .with(CombatStats{ max_hp: 30, hp: 30, defense: 2, power: 5 })
         .build();
     
     gs.ecs.insert(PlayerEntity(player_entity));
